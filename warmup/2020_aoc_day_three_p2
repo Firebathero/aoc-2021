@@ -14,21 +14,19 @@ using namespace std;
 int main() {
 
     freopen("input.txt", "r", stdin);
-    int depth = 0;
     vector<string> m;
     string s;
     while (cin >> s) {
         m.push_back(s);
     }
-    int sz = s.length();
 
-    long long total = 1;
-    vector<int>y_fac{1,1,1,1,2};
-    vector<int>x_fac{1,3,5,7,1};
+    ll total = 1;
     int tc = 5, j = 0;
 
-    while (tc--) {
+    vector<int>y_fac{1,1,1,1,2};
+    vector<int>x_fac{1,3,5,7,1};
 
+    while (tc--) {
         int trees_hit = 0;
         int x_coord = 0;
         for (int i = 0; i < m.size(); i += y_fac[j]) {
@@ -37,12 +35,8 @@ int main() {
             x_coord += x_fac[j];
             x_coord %= 31;
         }
-
         j++;
         total *= trees_hit;
         cout << total << '\n';
-    } 
+    }
 }
-
-
-
