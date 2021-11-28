@@ -1,0 +1,48 @@
+//++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++
+#include <bits/stdc++.h>
+#define endl '\n'
+#define F first
+#define S second
+#define mp make_pair
+
+#define mx(v) max_element(v.begin(), v.end());
+#define mn(v) min_element(v.begin(), v.end());
+typedef long long ll;
+using namespace std;
+//++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++--++
+
+int main() {
+
+    freopen("input.txt", "r", stdin);
+    int depth = 0;
+    vector<string> m;
+    string s;
+    while (cin >> s) {
+        m.push_back(s);
+    }
+    int sz = s.length();
+
+    long long total = 1;
+    vector<int>y_fac{1,1,1,1,2};
+    vector<int>x_fac{1,3,5,7,1};
+    int tc = 5, j = 0;
+
+    while (tc--) {
+
+        int trees_hit = 0;
+        int x_coord = 0;
+        for (int i = 0; i < m.size(); i += y_fac[j]) {
+            string curr = m[i];
+            if (curr[x_coord] == '#') trees_hit++;
+            x_coord += x_fac[j];
+            x_coord %= 31;
+        }
+
+        j++;
+        total *= trees_hit;
+        cout << total << '\n';
+    } 
+}
+
+
+
