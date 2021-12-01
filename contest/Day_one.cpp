@@ -5,16 +5,14 @@
 typedef long long ll;
 using namespace std;
 
-
+int n;
 int main() {
-    string s;
     freopen("input.txt", "r", stdin);
-    int n;
-
     vector<int>v;
     while (cin >> n) {
         v.push_back(n);
-    }  
+    }
+    
     int prev = v[0] + v[1] + v[2];
     int ct = 0;
 
@@ -25,14 +23,3 @@ int main() {
     }
     cout << ct;  
 }
-
-
-
-
-
-
-
-
-
-
-*/
