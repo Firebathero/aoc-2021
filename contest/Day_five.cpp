@@ -16,30 +16,20 @@ int main()
 {
 
     for (int i = 0; i < 1500; ++i)
-    {
-        for (int j = 0; j < 1500; ++j)
-        {
-            a[i][j] = '.';
-        }
-    }
-    vector<string> v;
+        for (int j = 0; j < 1500; ++j) a[i][j] = '.';
     int ans = 0;
     freopen("input.txt", "r", stdin);
 
     string s1,s2;
     vector<int> x1, x2, y1, y2;
-    while (cin >> s) 
-    {
-        int j = 0;
-        while(s[j]!=',')j++;
-        x1.push_back(stoi(s.substr(0,j)));
-        y1.push_back(stoi(s.substr(j+1,s.length()-j)));
-        cin >> s; cin >> s; j = 0;
-        while(s[j]!=',')j++;
-        x2.push_back(stoi(s.substr(0,j)));
-        y2.push_back(stoi(s.substr(j+1,s.length()-j)));
+    while (cin >> s) {
+        size_t last = 0, next = 0;
+        while ((next = s.find(',', last))!=string::npos) {
+        M%2==0?x1.push_back(stoi(s.substr(last,next-last))) : x2.push_back(stoi(s.substr(last,next-last))); 
+        last = next + 1;
+        M%2==0?y1.push_back(stoi(s.substr(last))) : y2.push_back(stoi(s.substr(last))); M++;
+        } 
     }
-    
     int xc1, xc2, yc1, yc2;
     for (int i = 0; i < y1.size(); ++i)
     {
