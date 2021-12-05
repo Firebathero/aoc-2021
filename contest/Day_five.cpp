@@ -22,62 +22,25 @@ int main()
             a[i][j] = '.';
         }
     }
-
     vector<string> v;
     int ans = 0;
     freopen("input.txt", "r", stdin);
 
-    while (getline(cin, s))
-    {
-        v.pb(s);
-    }
+    string s1,s2;
     vector<int> x1, x2, y1, y2;
-
-    for (int i = 0; i < 500; ++i)
+    while (cin >> s) 
     {
-
-        string line = v[i];
-        string temp = "";
         int j = 0;
-
-        while (line[j] != ',' && line[j] != '-' && line[j] != '>' && line[j] != ' ')
-        {
-            temp += line[j];
-            j++;
-        }
-        x1.push_back(stoi(temp));
-        j++;
-        temp = "";
-
-        while (line[j] != ',' && line[j] != '-' && line[j] != '>' && line[j] != ' ')
-        {
-            temp += line[j];
-            j++;
-        }
-
-        y1.push_back(stoi(temp));
-        temp = "";
-        j += 4;
-
-        while (line[j] != ',' && line[j] != '-' && line[j] != '>' && line[j] != ' ')
-        {
-            temp += line[j];
-            j++;
-        }
-        x2.push_back(stoi(temp));
-        temp = "";
-        j++;
-
-        while (line[j] != ',' && line[j] != '-' && line[j] != '>' && line[j] != ' ')
-        {
-            temp += line[j];
-            j++;
-        }
-        y2.push_back(stoi(temp));
+        while(s[j]!=',')j++;
+        x1.push_back(stoi(s.substr(0,j)));
+        y1.push_back(stoi(s.substr(j+1,s.length()-j)));
+        cin >> s; cin >> s; j = 0;
+        while(s[j]!=',')j++;
+        x2.push_back(stoi(s.substr(0,j)));
+        y2.push_back(stoi(s.substr(j+1,s.length()-j)));
     }
-
+    
     int xc1, xc2, yc1, yc2;
-
     for (int i = 0; i < y1.size(); ++i)
     {
         if (y1[i] == y2[i])
