@@ -17,6 +17,7 @@ int main()
 
     for (int i = 0; i < 1500; ++i)
         for (int j = 0; j < 1500; ++j) a[i][j] = '.';
+    
     int ans = 0;
     freopen("input.txt", "r", stdin);
 
@@ -30,6 +31,7 @@ int main()
         M%2==0?y1.push_back(stoi(s.substr(last))) : y2.push_back(stoi(s.substr(last))); M++;
         } 
     }
+    
     int xc1, xc2, yc1, yc2;
     for (int i = 0; i < y1.size(); ++i)
     {
