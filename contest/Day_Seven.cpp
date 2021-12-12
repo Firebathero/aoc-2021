@@ -24,7 +24,8 @@ int main()
         }
     int ans = 0, res = 0;
     v.push_back(stoi(s.substr(prev, s.length()-prev)));
-    sort(v.begin(), v.end());
+    
+    //solve
     for (int d : v) ans += d;
     int mean = ans/v.size();
     for (int d : v) {
