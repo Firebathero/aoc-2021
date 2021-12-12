@@ -22,12 +22,12 @@ int main()
             v.push_back(stoi(t));
             prev = i+1;
         }
-    int ans = 0, res = 0;
+    int sum = 0, res = 0;
     v.push_back(stoi(s.substr(prev, s.length()-prev)));
     
     //solve
-    for (int d : v) ans += d;
-    int mean = ans/v.size();
+    for (int d : v) sum += d;
+    int mean = sum/v.size();
     for (int d : v) {
         d = abs(mean-d);
         res += (d*(d+1))/2; 
